@@ -50,3 +50,15 @@ function readB5()
 }
 ```
 
+We can pass a range to `getRange` to select multiple cells.
+```js
+function readB5ToD10()
+{
+  var sheet = SpreadsheetApp.getActiveSheet();
+  var cell = sheet.getRange("B5:D10");
+  return cell.getValues();
+}
+```
+
+Ranges one one-based and inclusive.
+This means that the top-left cell is A1, there is no A0, and the D10 cell is included in the example above.
