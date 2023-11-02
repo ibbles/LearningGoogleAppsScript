@@ -1,2 +1,6 @@
 .obsidian
 .tangent
+
+
+# Ignore Smart Connections folder because embeddings file is large and updated frequently
+.smart-connections
