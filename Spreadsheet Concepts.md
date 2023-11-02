@@ -10,7 +10,7 @@ The top-left cells is A1.
 The neighbor to the right is B1.
 The neighbor down is A2.
 Cells are accessed as ranges.
-A range is a continuous rectangular collection of cells.
+A [[Range]] is a continuous rectangular collection of cells.
 Possibly a single one.
 Identified as a start (upper-left) cell and an end (lower-right) cell.
 A1:B2 is the 2x2 range consisting of A1, B1, A2, B2.
