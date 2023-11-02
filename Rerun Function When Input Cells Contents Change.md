@@ -115,4 +115,3 @@ function forceUpdate() {
 
 - [_Google App Function - Recalculate/Refresh values_ by Tanaike @ stackoverflow.com 2019](https://stackoverflow.com/questions/56462700/google-app-function-recalculate-refresh-values)
 - [Reply to _My Function is not refreshing when cells are updated_ by --Hyde @ support.google.com 2022](https://support.google.com/docs/thread/55874976?hl=en&msgid=56034420)
-- 
