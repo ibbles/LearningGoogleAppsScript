@@ -11,6 +11,9 @@ We need to traverse the spreadsheet hierarchy described in [[Spreadsheet Concept
 - Cell -
 	- We can get the current cell from the sheet by calling `getActiveCell`.
 
+
+# Getting The Active Cell
+
 Example getting the cell that triggered the current function evaluation:
 ```js
 function getCellCoordinate() {
@@ -29,15 +32,35 @@ A shorthand to get the active sheet is
 var sheet = SpreadsheetApp.getActiveSheet();
 ```
 
+
+# Getting Any Range
+
 We can access any arbitrary cell in a sheet using `getRange`, and access the data of that cell using `getValue`.
-The following example reads and returns the value of the neighboring cell to the left, i.e. with a column number one less than the active cell.
+There are multiple overloads of `getRange`.
+The following example uses integer indexing to read and return the value of the neighboring cell to the left,
+i.e. with a column number one less than the active cell.
+Make sure to not run this function when the active cell is on the far left of the sheet.
 ```js
 function readNeighbor() {
-  var sheet = SpreadsheetApp.getActiveSheet();
-  var cell = sheet.getActiveCell();
-  var neighbor = sheet.getRange(cell.getRow(), cell.getColumn() - 1);
+  const sheet = SpreadsheetApp.getActiveSheet();
+  const cell = sheet.getActiveCell();
+  const row = cell.getRow(); // The integer index, one-based, of the current row.
+  const col = cell.getCol(); // The integer index, one-based, of the current column.
+  const neighbor = sheet.getRange(row, col - 1);
   return neighbor.getValue();
 }
+```
+The rule regarding indexing is that whenever we talk to the API then it's one-based,
+and whenever we talk to JavaScript arrays then it's zero-based.
+Notice that the order to `getValue` is (row, column),
+which is swapped compared to A1 notation, which has the column first and the row second.
+
+A range can be more than a single cell.
+By passing a third index parameter we select the number of rows to include down.
+This makes the range a vertical line, selecting a range of a single column.
+By passing a forth index parameter we extend the selection to the right, creating a rectangular selection.
+```js
+sheet.getRange(row, col, numRowsDown, numColsRight);
 ```
 
 In addition to integer based cell indexing we can also use A1-based indexing.
