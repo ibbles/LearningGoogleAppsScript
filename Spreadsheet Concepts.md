@@ -23,7 +23,7 @@ i.e. (5, 3) is row 5, column 3,
 while E3, E is the letter equivalent of 5, is column E row 3.
 
 This structure is used when we access data from an [[Apps Script]].
-For an example, see [[Accessing Arbitrary Cell Data]]
+For an example, see [[Accessing Arbitrary Cell Data Range]]
 
 # References
 
