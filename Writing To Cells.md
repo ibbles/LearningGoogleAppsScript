@@ -1,3 +1,5 @@
+# Permission
+
 While there are functions for writing to a cell or a range of cells,
 I have not been able to get it to work.
 The error is
@@ -27,6 +29,8 @@ such as selecting an item from a menu, see [[Creating Menu Items]],
 or when running the function from within the [[App Script Editor]].
 
 
+# Writing Through A Range
+
 To write to a cell or range of cells we must first get a hold of the cell range.
 We then use either `setValue`, to set the same value to all cells in the range,
 or `setValues`, to pass a two-dimensional array of values to set.
@@ -49,6 +53,17 @@ function writeCells() {
 }
 ```
 
+# Clearing  Cells
+
+Cells identified by a [[Range]] are cleared with either:
+- `Clear()` : Clear both content and formatting.
+- `clearContent()`: Removes the data / formula from a cell, but not the formatting.
+- `clearFormat`: Cell retain its data / formula, but formatting is reset to the default.
+```js
+function clearCells() {
+
+}
+```
 # References
 
 - [_Spreadsheet no permission for setValue_ by --Hyde 2023](https://support.google.com/docs/thread/202011707/spreadsheet-no-permission-for-setvalue?hl=en)
