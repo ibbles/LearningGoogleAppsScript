@@ -1,18 +1,34 @@
 A range is a way to identify a cell or a contiguous range of cells.
 They are specified either using A1 notation or integer indices.
 
+# A1 Notation
+
+## Single Cell
+
 A1 notation uses letters to identify columns and number to identify rows.
 The A1 cell is in the top-left.
 The B1 cell is one cell to the right of A1.
 The A2 cell is cone cell below A1.
+
+## Rectangular Regions
+
 We can designate a rectangular contiguous range of cells by giving two cells separated by :.
 This will designate a range including all cells on the rows on or between the rows of the two given cells
 and columns on or between the columns of the two given cells.
 For example, A1:C10 starts at A1 and ends at, including, C10.
 
+# Integer Notation
+
+## Single Cell
+
 Integer indexing is one-based, meaning the top-left cell is (1, 1).
 The order is (row, column), meaning that cell (1, 2) is to the right of (1, 1).
 Cell (2, 1) is below (1, 1).
+This is the opposite of A1 notation, which has the column first.
+A10 = (10, 1).
+
+## Rectangular Regions
+
 Multi-cell ranges are specified by giving the number of rows and number of columns to extend down and right from the (row, column) cell.
 For example, (2, 3, 10, 20) designate a range starting at row 2, column 3,  extending 10 rows down and 20 column to the right.
 The number of rows and columns count the number of rows and column, not steps.
