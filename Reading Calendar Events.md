@@ -40,6 +40,8 @@ function getMyCalendarEvents() {
 Dates are really time points and without a time it means 0:00:00.
 So if you type dates without a time then the date range is an closed-open interval, i.e. the start day is included but the end day is not.
 
+See also [[Writing Calendar Events]].
+
 # References
 
 - [_Class CalendarApp_ by Google @ developers.google.com](https://developers.google.com/apps-script/reference/calendar/calendar-app?hl=en)
