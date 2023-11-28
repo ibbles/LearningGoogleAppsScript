@@ -58,6 +58,8 @@ function forceUpdate() {
 }
 ```
 
+[[Clear A Sheet Or Range]]
+
 Then restart / refresh the spreadsheets tab to re-run the `onOpen` callback.
 This will add a Learning Apps Script menu to the Top Menu Bar and in that a Force Update Selected Cells item.
 To use, select the cells with formulas that need re-evaluation and select Top Menu Bar > Learning Apps Script > Force Update Selected Cells.
