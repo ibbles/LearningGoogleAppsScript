@@ -64,6 +64,9 @@ function clearCells() {
 
 }
 ```
+
+[[Clear A Sheet Or Range]]
+
 # References
 
 - [_Spreadsheet no permission for setValue_ by --Hyde 2023](https://support.google.com/docs/thread/202011707/spreadsheet-no-permission-for-setvalue?hl=en)
