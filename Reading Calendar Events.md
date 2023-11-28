@@ -22,6 +22,7 @@ function onOpen() {
     .addItem("Get calendar events", "getMyCalendarEvents")
     .addToUi();
 }
+
 function getMyCalendarEvents() {
 	const calendar = CalendarApp.getCalendarById("somehexstring@group.calendar.google.com");
 }
@@ -32,6 +33,7 @@ Once we have a calendar we can get a list of all events for a range of dates usi
 function getMyCalendarEvents() {
 	const calendar = CalendarApp.getCalendarById("somehexstring@group.calendar.google.com");
 	const events = calendar.getEvents(new Date("2023-11-01"), new Date("2023-11-30"));
+	const firstTitle = events[0].getTitle();
 }
 ```
 
