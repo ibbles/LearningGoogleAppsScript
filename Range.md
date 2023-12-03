@@ -35,6 +35,38 @@ The number of rows and columns count the number of rows and column, not steps.
 So (2, 3, 1, 1) selects the single cell at (2, 3), since it selects one row and one column.
 So (2, 3, 2, 2) selects a 2x2 block of cells with the top-left corner at (2, 3).
 
+# `getValues` And JavaScript Arrays
+
+Calling `getValues` on a range returns a 2D JavaScript array.
+JavaScript arrays use 0-based indexing, meaning the first element is at index 0.
+Since Apps Script uses 1-based indexing for sheet rows and columns we may need to do `row - 1` and `column - 1` when indexing into the JavaScript arrays.
+The 2D array is row-major, meaning that each element of the outer array is row.
+`getValues[0]` gives you the first row, which is also an array.
+`getValues[0][0]` gives you the first row, and the first element of that row, i.e. the top-left corner of the range.
+`getValues[0][i]` where `i` is a counter walks along the first row, i.e. between columns.
+`getValues[row][col]` gives you the element on row `row` and column `column`.
+
+`getValues` returns a 2D array even if the range is 1D.
+In that case one of the dimensions has size 1.
+If the range is a column then the outer array has size `n` and the inner arrays has size `1`.
+```js
+// Looping over a column.
+const range = spreadsheet.getRange("A2:A");
+const values = range.getValues();
+for (row of values) {  // Loop over the rows.
+	const value = row[0];  // Read the only column on that row.
+	Logger.log(value);
+}
+```
+If the range is a row then the outer array has size `1` and the inner array has size `n`.
+```js
+# Looping over an array.
+const range = spreadsheet.getRange("B1:1");
+const values = range.getValues();
+for (value of values[0]) {  // Loop over all values in the first, and only, row.
+	Logger.log(value);
+}
+```
 # References
 
 - [_App Script Editor Tutorial - Google Sheets - Excel VBA Equivalent - Read & Write to Ranges & Cells_ by Learn Google Sheets & Excel Spreadsheets @ youtube.com 2017](https://www.youtube.com/watch?v=aPJ-2U45BpA&list=PLv9Pf9aNgemv62NNC5bXLR0CzeaIj5bcw)
