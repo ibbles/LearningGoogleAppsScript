@@ -12,9 +12,10 @@ but I don't like that much either.
 
 We can read data from other spreadsheets.
 To do that we need to know either the URL or the ID of the other spreadsheet.
-the ID is the long hex-string in the URL.
+The ID is the long hex-string in the URL.
 For example, the bold part in:  
-https://docs.google.com/spreadsheets/d/ **15ifD3Phi5DV-ErK1_kV1-8uUQgD5f565gk8BZ99O-os** /edit#gid=0
+https://docs.google.com/spreadsheets/d/ **3Phi5DV-EbK1_kV1-8vUQgD5f56-BZ99O-os** /edit#gid=0
+[[Spreadsheet ID]]
 
 ```js
 const ss = SpreadsheetApp.openByUrl(`https://docs.google.com/spreadsheets/d/${ID}$/edit`);
