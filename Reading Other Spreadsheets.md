@@ -17,8 +17,8 @@ For example, the bold part in:
 https://docs.google.com/spreadsheets/d/ **15ifD3Phi5DV-ErK1_kV1-8uUQgD5f565gk8BZ99O-os** /edit#gid=0
 
 ```js
-const ss = SpreadsheetApp.openByUrl('https://docs.google.com/spreadsheets/d/${ID}$/edit');
-var ss = SpreadsheetApp.openById("${ID}");
+const ss = SpreadsheetApp.openByUrl(`https://docs.google.com/spreadsheets/d/${ID}$/edit`);
+var ss = SpreadsheetApp.openById(`${ID}`);
 ```
 # References
 

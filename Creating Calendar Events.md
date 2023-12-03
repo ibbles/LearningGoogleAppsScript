@@ -6,8 +6,8 @@ function createCalendarEvents()
 	const calendar = CalenarApp.getCalendarById("somehexstring@group.calendar.google.com");
 	const title = "My Event";
 	const timeZone = calendar.getTimeZone();
-	const startTime = new Date("2023-11-28 11:45 ${timeZone}");
-	const endTime = new Date("2023-11-28 15:45 ${timeZone}");
+	const startTime = new Date(`2023-11-28 11:45 ${timeZone}`);
+	const endTime = new Date(`2023-11-28 15:45 ${timeZone}`);
 	const options = {
 		location: "My Street 123, My City",
 		description: "Come Party!"
