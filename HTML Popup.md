@@ -1,8 +1,11 @@
 We can display HTML dialog boxes, including interaction with our JavaScript code.
-This is done through the HTML Service, named `HtmlServer` in Apps Script.
+This is done through the HTML Service, named `HtmlService` in Apps Script.
+
+
+# HTML Page
 
 The HTML to display is created as a separate file in the Files panel.
-Click the + button, select HTML, type a name for the HTML file, excluding the `.html` suffix which is added automatically.
+Click the + button, select HTML, type a name for the HTML file excluding the `.html` suffix which is added automatically.
 For this example we use the name `HelloWorld`.
 This will produce a HTML document with some boilerplate code.
 Add your content within the `<body>` tag.
@@ -21,8 +24,10 @@ Add your content within the `<body>` tag.
 ```
 
 Create a function to display the HTML page in a dialog.
-Dialog windows created this way can only be shown from interactive contexts such as from a menu item.
+Dialog windows created this way can only be shown from interactive contexts such as from a [[Creating Menu Items|Menu Item]].
 They cannot be used from a [[Formula]] or using the Run button from the Apps Script IDE.
+
+Here is the JavaScript code for displaying the Hello World page:
 ```js
 function onLoad() {
 	SpreadsheetApp.getUi().createMenu("My Menu")
@@ -37,10 +42,9 @@ function showHtmlDialog() {
 }
 ```
 
-The above produces a HTML dialog with the title `My Dialog Title`, a close button, and the text `Hello, World!`.
+From the Google Sheets document select Top Menu Bar > My Menu > Show HTML Dialog.
+A dialog windows opens, displaying the title `My Dialog Title`, a close button, and the text `Hello, World!`.
 
-From the Google Sheets document select Top Menu Bar > My Menu > Shove HTML Dialog.
-A dialog windows opens, displaying the text `Hello, World!`.
 
 # Scriptlet
 
@@ -49,11 +53,11 @@ The script is evaluated server-size before the HTML is sent to the client.
 This means that the scriptlet is only run once.
 A scriptlet is introduced with the `<?` tag start and ended with the `?>` tag end.
 There are a few different types of scriptlet tag starts:
-- `<?`: Only run the script, does not by itself have any effect on the HTML document.
-- `<?=`: Evaluate the expression, convert the result to a string and embed into the HTML document.
-- `<?!=`: Not sure. Something about unconditional evaluation. More reading required.
+- `<?`: Only run the scriptlet, does not by itself have any effect on the HTML document.
+- `<?=`: Evaluate the scriptlet expression, convert the result to a string, escape any HTML syntax, and embed into the HTML document.
+- `<?!=`: Like `<?=` but do not escape HTML syntax. If the expression evaluates to `<ul><li>Text</li></ul>` then you get a list.
 
-The following HTML page shoes the Hello, World! text in all-lowercase, i.e. `hello, world!`.
+The following HTML page shows the `Hello, World!` text in all-lowercase, i.e. `hello, world!`.
 The JavaScript code to display it is the same as above.
 `HelloWorld.html`:
 ```html
@@ -103,6 +107,35 @@ function getGreeting() {
 }
 ```
 
+
+# Generating a Drop-Down Menu
+
+Example using a scriptlet to populate a drop-down menu with options.
+There are two approaches we can take here.
+- Generate complete HTML code for the options in the Apps Script.
+- Send an array of options to the HTML page and use multiple scriptlets to complete the HTML.
+
+## Generate HTML In Apps Script
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+</head>
+<body>
+  <p>
+    <?= dropdowntest_getFormTitle(); ?>
+  </p>
+  <form>
+    <label for="dropdown">Select a value:</label>
+    <select id="dropdown">
+      <?!= dropdowntest_getDropdownOptions(); ?>
+    </select>
+  </form>
+</body>
+</html>
+```
 
 # Interactive Element - Button
 
