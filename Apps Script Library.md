@@ -7,7 +7,7 @@ To use the functions in an Apps Script Library in a [[Spreadsheet]] the library 
 # Using A Library
 
 To use an Apps Script library in a [[Spreadsheet]] document you need to know the library's Script ID.
-You can find this in [[App Script Editor]] > left panel > Project Settings > IDs > Script.
+You can find this in [[Script Editor]] > left panel > Project Settings > IDs > Script.
 
 In the [[Spreadsheet]] that should use the library:
 - Open the sheet-specific Apps Script Editor with Top Menu Bar > Extensions > Apps Script.
@@ -34,7 +34,7 @@ Test.test();
 A deployment is a fixed version of the library.
 Except for the head deployment, which is changed with the code changes.
 
-To deploy the library click the Deploy button in the top-right corner of the [[App Script Editor]].
+To deploy the library click the Deploy button in the top-right corner of the [[Script Editor]].
 Click Manage Deployments.
 Click Create Deployment.
 From the left side for Select Type select Library.

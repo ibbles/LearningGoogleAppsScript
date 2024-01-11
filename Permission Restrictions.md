@@ -24,5 +24,5 @@ See also [_Custom Functions in Google Sheets_ > _Advanced_ by Google at develope
 There are some exceptions though.
 One is when the writing function is triggered by a user action,
 such as selecting an item from a menu, see [[Creating Menu Items]],
-or when running the function from within the [[App Script Editor]].
+or when running the function from within the [[Script Editor]].
 
