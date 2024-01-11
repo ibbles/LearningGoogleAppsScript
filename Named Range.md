@@ -19,3 +19,12 @@ function useNamedRange() {
 	const values = range.getValues();
 }
 ```
+
+Get a list of all named ranges with `Spreadsheet.getNamedRanges`:
+```js
+// The code below logs the name of the first named range.
+var namedRanges = SpreadsheetApp.getActiveSpreadsheet().getNamedRanges();
+for (var i = 0; i < namedRanges.length; i++) {
+	Logger.log(namedRanges[i].getName());
+}
+```
